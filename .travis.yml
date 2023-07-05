@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t iboretska/docker-learn-on-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true iboretska/docker-learn-on-react npm run test
